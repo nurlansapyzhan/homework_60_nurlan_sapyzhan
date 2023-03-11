@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}
+    Main
+{% endblock %}
+{% block menu %}
+    <a class="nav-link" href="{% url 'add_product' %}">Add product</a>
+{% endblock %}
+{% block content %}
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for product in products %}
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{{ product.image }}" class="card-img-top img-thumbnail product_image" alt="product image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.title }}</h5>
+                        <p class="card-text">{{ product.category }}</p>
+                        <h5 class="card-title">Price: {{ product.price }}₸</h5>
+                        <a href="{% url 'product_detail' product.pk %}" class="btn btn btn-secondary stretched-link">See
+                            more
+                            >>> </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

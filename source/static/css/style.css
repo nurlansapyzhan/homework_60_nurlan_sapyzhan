@@ -1,0 +1,63 @@
+.product_image {
+    height: 415px;
+}
+
+.card_links {
+    text-decoration: none;
+    width: 25px;
+}
+
+input[type="text"],
+textarea {
+    background-color: whitesmoke;
+    color: #6c757d;
+    border: thick double #6c757d;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    outline: none;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+button {
+    background-color: #6c757d;
+    color: #fff;
+    border: thick double white;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+
+.cancel {
+    display: flex;
+    margin-top: 20px;
+}
+
+.cancel_button {
+    width: 92px;
+    background-color: #6c757d;
+    color: #fff;
+    border: thick double white;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+.cancel_button:hover {
+    opacity: 0.8;
+    color: white;
+}
