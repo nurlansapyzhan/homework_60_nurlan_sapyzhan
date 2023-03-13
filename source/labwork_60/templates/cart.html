@@ -24,4 +24,7 @@
         </div>
     {% endfor %}
     <h4>Total: {{ total }}</h4>
+    <form action="{% url "create_order" %}" method="get">
+        {% include 'partial/product_form.html' with button_text='Create Order' %}
+    </form>
 {% endblock %}

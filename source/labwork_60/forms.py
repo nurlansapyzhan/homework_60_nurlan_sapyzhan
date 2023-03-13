@@ -1,6 +1,6 @@
 from django import forms
 
-from labwork_60.models import Product
+from labwork_60.models import Product, Order
 
 
 class ProductForm(forms.ModelForm):
@@ -31,3 +31,14 @@ class ProductForm(forms.ModelForm):
 
 class SearchForm(forms.Form):
     search = forms.CharField(max_length=30, required=False, label='Search')
+
+
+class OrderForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = ('username', 'address', 'phone_number')
+        labels = {
+            'username': 'Username',
+            'address': 'Address',
+            'phone_number': 'Phone number'
+        }
