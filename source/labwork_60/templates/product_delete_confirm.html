@@ -12,10 +12,10 @@
         <p class="info">Price: {{ product.price }}</p>
         <form action="{% url 'confirm_delete' product.pk %}" method="post">
             {% csrf_token %}
-            <button type="submit" class="delete_button">Удалить</button>
+            <button type="submit" class="delete_button">Yes</button>
         </form>
         <div class="cancel">
-            <a href="{% url 'index' %}" class="cancel_button">Отмена</a>
+            <a href="{% url 'index' %}" class="cancel_button">No</a>
         </div>
     </div>
 {% endblock %}

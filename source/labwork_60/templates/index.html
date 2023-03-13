@@ -4,9 +4,11 @@
 {% endblock %}
 {% block menu %}
     <a class="nav-link" href="{% url 'add_product' %}">Add product</a>
+    <a class="nav-link" href="{% url 'cart' %}">Cart</a>
 {% endblock %}
 {% block content %}
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% include 'partial/search.html' %}
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
         {% for product in products %}
             <div class="col">
                 <div class="card h-100">
@@ -15,12 +17,21 @@
                         <h5 class="card-title">{{ product.title }}</h5>
                         <p class="card-text">{{ product.category }}</p>
                         <h5 class="card-title">Price: {{ product.price }}₸</h5>
-                        <a href="{% url 'product_detail' product.pk %}" class="btn btn btn-secondary stretched-link">See
-                            more
-                            >>> </a>
+                        <a href="{% url 'product_detail' product.pk %}" class="btn btn-secondary">See more >>></a>
+                        {% if product.amount > 0 %}
+                            <form action="{% url 'add_product_to_cart' product.pk %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="add_to_cart_button">Add to cart</button>
+                            </form>
+                        {% else %}
+                            <p>Out of stock</p>
+                        {% endif %}
                     </div>
                 </div>
             </div>
         {% endfor %}
     </div>
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
 {% endblock %}

@@ -2,7 +2,6 @@ from django.core.validators import MinValueValidator
 from django.db import models
 
 
-# Create your models here.
 class Product(models.Model):
     title = models.CharField(max_length=100, null=False, blank=False, verbose_name='Наименование товара')
     description = models.CharField(max_length=2000, null=True, verbose_name='Описание товара')

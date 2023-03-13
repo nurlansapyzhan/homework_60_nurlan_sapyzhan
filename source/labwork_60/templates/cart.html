@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}
+    Cart
+{% endblock %}
+{% block menu %}
+    <a class="nav-link" href="{% url 'add_product' %}">Add product</a>
+{% endblock %}
+{% block content %}
+    <h1>Your Cart</h1>
+    {% for item in cart_items %}
+        <div class="col">
+            <div class="card mt-2">
+                <div class="card-body">
+                    <h5 class="card-title">Product: {{ item.product.title }}</h5>
+                    <p class="card-text">Price: {{ item.product.price }}</p>
+                    <p class="card-text">Amount: {{ item.amount }}</p>
+                    <h5 class="cart-title">Sum: {% widthratio item.product.price 1 item.amount %}</h5>
+                    <form method="POST" action="{% url 'delete_product_from_cart' item.pk %}">
+                        {% csrf_token %}
+                        <button class="btn btn-secondary" type="submit">Remove</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    <h4>Total: {{ total }}</h4>
+{% endblock %}
