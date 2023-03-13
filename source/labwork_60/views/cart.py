@@ -1,6 +1,6 @@
-from django.shortcuts import redirect, get_object_or_404
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView, DeleteView
+from django.views.generic import ListView, DeleteView
 
 from labwork_60.models import ProductInCart, Product
 

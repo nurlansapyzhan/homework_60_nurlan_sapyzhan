@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block header %}
-    <h1>Редактировать продукт</h1>
+    <h1>Edit product</h1>
 {% endblock %}
 {% block title %}
-    Редактировать продукт
+    Edit product
 {% endblock %}
 {% block content %}
     <form action="{% url 'product_edit' product.pk %}" method="post">
