@@ -1,6 +1,12 @@
 from django import forms
+from django.core.exceptions import ValidationError
 
 from labwork_60.models import Product, Order
+
+
+def validate_phone_number(value):
+    if not value.isdigit():
+        raise ValidationError('Phone number should contain only digits')
 
 
 class ProductForm(forms.ModelForm):
@@ -34,6 +40,9 @@ class SearchForm(forms.Form):
 
 
 class OrderForm(forms.ModelForm):
+    phone_number = forms.CharField(validators=[validate_phone_number],
+                                   widget=forms.TextInput(attrs={'placeholder': '87771231212'}))
+
     class Meta:
         model = Order
         fields = ('username', 'address', 'phone_number')
